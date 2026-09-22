@@ -17,22 +17,51 @@ import {
 import { cn } from "@/lib/utils";
 import { store } from "@/lib/store";
 import { useEffect, useState } from "react";
+import { User } from "@/lib/types";
+
+interface NavItem {
+  name: string;
+  href: string;
+  icon: any;
+  badge?: string;
+  badgeColor?: string;
+  highlight?: boolean;
+  highlightAdmin?: boolean;
+}
 
 export function Sidebar() {
   const pathname = usePathname();
   const [businessName, setBusinessName] = useState("Trattoria Da Matteo");
   const [recoveryCount, setRecoveryCount] = useState(1);
+  const [user, setUser] = useState<User>(store.getCurrentUser());
 
   useEffect(() => {
     const update = () => {
       setBusinessName(store.getBusiness().name);
       setRecoveryCount(store.getMetrics().activeRecoveryCases);
+      setUser(store.getCurrentUser());
     };
     update();
     return store.subscribe(update);
   }, []);
 
-  const navItems = [
+  const isSuperAdmin = user.role === "super_admin";
+
+  const adminNavItem: NavItem[] = isSuperAdmin
+    ? [
+        {
+          name: "Consola Super Admin",
+          href: "/admin",
+          icon: Sparkles,
+          badge: "doui",
+          badgeColor: "bg-purple-100 text-purple-900 border-purple-300 font-black",
+          highlightAdmin: true,
+        },
+      ]
+    : [];
+
+  const navItems: NavItem[] = [
+    ...adminNavItem,
     {
       name: "Dashboard",
       href: "/dashboard",

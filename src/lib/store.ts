@@ -8,6 +8,9 @@ import {
   Campaign,
   DashboardMetrics,
   CouponType,
+  User,
+  UserRole,
+  TenantBusiness,
 } from "./types";
 import {
   initialBusiness,
@@ -16,6 +19,9 @@ import {
   initialCoupons,
   initialCampaigns,
   initialMetrics,
+  initialSuperAdminUser,
+  initialClientUser,
+  initialTenants,
 } from "./initial-data";
 
 const STORAGE_KEYS = {
@@ -25,6 +31,8 @@ const STORAGE_KEYS = {
   COUPONS: "reviewflow_coupons",
   CAMPAIGNS: "reviewflow_campaigns",
   METRICS: "reviewflow_metrics",
+  CURRENT_USER: "reviewflow_current_user",
+  TENANTS: "reviewflow_tenants",
 };
 
 // Safe localStorage access
@@ -51,6 +59,8 @@ function saveToStorage<T>(key: string, data: T): void {
 export class ReviewFlowStore {
   private static instance: ReviewFlowStore;
 
+  private currentUser: User = initialSuperAdminUser;
+  private tenants: TenantBusiness[] = initialTenants;
   private business: Business = initialBusiness;
   private customers: Customer[] = initialCustomers;
   private feedbacks: Feedback[] = initialFeedbacks;
@@ -61,6 +71,8 @@ export class ReviewFlowStore {
 
   private constructor() {
     if (typeof window !== "undefined") {
+      this.currentUser = loadFromStorage(STORAGE_KEYS.CURRENT_USER, initialSuperAdminUser);
+      this.tenants = loadFromStorage(STORAGE_KEYS.TENANTS, initialTenants);
       this.business = loadFromStorage(STORAGE_KEYS.BUSINESS, initialBusiness);
       this.customers = loadFromStorage(STORAGE_KEYS.CUSTOMERS, initialCustomers);
       this.feedbacks = loadFromStorage(STORAGE_KEYS.FEEDBACKS, initialFeedbacks);
@@ -84,6 +96,8 @@ export class ReviewFlowStore {
 
   private notify(): void {
     if (typeof window !== "undefined") {
+      saveToStorage(STORAGE_KEYS.CURRENT_USER, this.currentUser);
+      saveToStorage(STORAGE_KEYS.TENANTS, this.tenants);
       saveToStorage(STORAGE_KEYS.BUSINESS, this.business);
       saveToStorage(STORAGE_KEYS.CUSTOMERS, this.customers);
       saveToStorage(STORAGE_KEYS.FEEDBACKS, this.feedbacks);
@@ -92,6 +106,47 @@ export class ReviewFlowStore {
       saveToStorage(STORAGE_KEYS.METRICS, this.recalculateMetrics());
     }
     this.listeners.forEach((l) => l());
+  }
+
+  // User & Tenant Management
+  public getCurrentUser(): User {
+    return { ...this.currentUser };
+  }
+
+  public setCurrentUser(user: User): void {
+    this.currentUser = { ...user };
+    this.notify();
+  }
+
+  public switchRole(role: UserRole): void {
+    if (role === "super_admin") {
+      this.currentUser = {
+        ...initialSuperAdminUser,
+        businessId: this.business.id,
+        businessName: this.business.name,
+      };
+    } else {
+      this.currentUser = {
+        ...initialClientUser,
+        businessId: this.business.id,
+        businessName: this.business.name,
+      };
+    }
+    this.notify();
+  }
+
+  public getTenants(): TenantBusiness[] {
+    return [...this.tenants];
+  }
+
+  public switchTenant(businessId: string): void {
+    const targetTenant = this.tenants.find((t) => t.id === businessId);
+    if (targetTenant) {
+      this.business = { ...targetTenant };
+      this.currentUser.businessId = targetTenant.id;
+      this.currentUser.businessName = targetTenant.name;
+      this.notify();
+    }
   }
 
   public getBusiness(): Business {

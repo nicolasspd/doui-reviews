@@ -9,6 +9,28 @@ export type BusinessCategory =
   | "retail"
   | "professional_services";
 
+export type UserRole = "super_admin" | "client";
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  businessId: string;
+  businessName: string;
+  avatar?: string;
+}
+
+export interface TenantBusiness extends Business {
+  plan: "Starter" | "Pro" | "Enterprise";
+  status: "active" | "trial" | "paused";
+  monthlyReviews: number;
+  totalQRs: number;
+  createdAt: string;
+  ownerName: string;
+  ownerEmail: string;
+}
+
 export interface Business {
   id: string;
   name: string;

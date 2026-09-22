@@ -2763,3 +2763,21 @@ Para evitar elementos lavados o de baja legibilidad:
 - Barras de distribución con fondo de pista `bg-slate-200` y etiquetas numéricas `font-mono text-xs font-bold text-slate-800`.
 - Gráficas de Recharts con líneas de cuadrícula `stroke="#e2e8f0"`, ejes con etiquetas `#64748b` y grosor de trazo en 600.
 
+---
+
+# 104. Diferenciación de Usuarios (Super Admin doui vs Cliente)
+
+La plataforma distingue estrictamente dos perfiles de usuario:
+
+### 1. Super Admin (doui core team)
+- **Acceso Global**: Consola centralizada en `/admin` con monitoreo de todos los clientes (tenants), volumen global de reseñas, MRR y retención.
+- **Multitenant Switcher**: Selector de local en el Header para cambiar de contexto en tiempo real entre restaurantes sin cerrar sesión.
+- **Capacidad de Impersonación**: Botón "Entrar como este Cliente" para auditar y operar cualquier local con la vista exacta que tiene el dueño.
+- **Navegación Prioritaria**: Acceso directo con insignia dorada `👑 Consola Super Admin` en Sidebar y Header.
+
+### 2. Cliente (Dueño de Restaurante / Local)
+- **Alcance Operativo Exclusivo**: Acceso restringido únicamente al dashboard, métricas, clientes, feedback y caja POS de su propio negocio.
+- **Sin Distracciones de Plataforma**: Ocultamiento de configuraciones globales, facturación SaaS y selectores multitenant.
+- **Acceso Protegido**: Al intentar navegar a `/admin`, el sistema muestra una pantalla informativa de permisos y permite alternar roles para fines de prueba y demostración.
+
+
