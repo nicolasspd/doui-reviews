@@ -87,6 +87,14 @@ export interface Feedback {
 export type CouponType = "percentage" | "fixed_amount" | "free_item" | "second_visit";
 export type CouponStatus = "active" | "redeemed" | "expired" | "cancelled";
 
+export interface CouponRedemption {
+  id: string;
+  redeemedAt: string;
+  redeemedByStaff: string;
+  ticketAmount?: number;
+  notes?: string;
+}
+
 export interface Coupon {
   id: string;
   businessId: string;
@@ -105,6 +113,9 @@ export interface Coupon {
   createdAt: string;
   redeemedAt?: string;
   redeemedByStaff?: string;
+  usageCount: number; // Cantidad de veces que fue ocupado
+  maxUsages: number; // Límite de usos (normalmente 1 para cupón único, o N para recurrentes)
+  redemptions?: CouponRedemption[];
 }
 
 export interface Campaign {

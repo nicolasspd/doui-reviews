@@ -174,7 +174,11 @@ export default function PublicFeedbackPage() {
       {/* Background Overlay Layer */}
       <div
         className="absolute inset-0 bg-slate-950 transition-opacity"
-        style={{ opacity: business.bgOverlayOpacity ?? 0.65 }}
+        style={{
+          opacity: (business.bgOverlayOpacity ?? 0.65) > 1
+            ? (business.bgOverlayOpacity! / 100)
+            : (business.bgOverlayOpacity ?? 0.65),
+        }}
       />
 
       {/* Main Container */}
@@ -192,10 +196,10 @@ export default function PublicFeedbackPage() {
               <Store className="w-10 h-10 text-emerald-600" />
             )}
           </div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight drop-shadow-md">
+          <h1 className="text-2xl font-black text-white tracking-tight drop-shadow-md">
             {business.name}
           </h1>
-          <p className="text-xs text-slate-200 mt-1 max-w-xs mx-auto drop-shadow-sm font-medium">
+          <p className="text-xs text-slate-100 mt-1 max-w-xs mx-auto drop-shadow-sm font-semibold">
             {business.welcomeMessage}
           </p>
         </div>
@@ -203,11 +207,11 @@ export default function PublicFeedbackPage() {
         {!isCompleted ? (
           <form
             onSubmit={handleSubmit}
-            className="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl shadow-2xl border border-white/80 space-y-6"
+            className="bg-white/98 backdrop-blur-md p-6 sm:p-7 rounded-3xl shadow-2xl border border-white/80 space-y-6"
           >
             {/* Star Rating Section */}
             <div className="text-center">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
+              <label className="block text-xs font-black uppercase tracking-wider text-slate-700 mb-3">
                 ¿Qué calificación le das a tu visita?
               </label>
 
@@ -236,27 +240,27 @@ export default function PublicFeedbackPage() {
               {/* Rating Mood Label */}
               <div className="h-6 mt-2 flex items-center justify-center">
                 {rating === 5 && (
-                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  <span className="text-xs font-black text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-300">
                     🌟 ¡Excelente! Nos alegra mucho saberlo
                   </span>
                 )}
                 {rating === 4 && (
-                  <span className="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">
+                  <span className="text-xs font-black text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-300">
                     ✨ Muy bueno, gracias por preferirnos
                   </span>
                 )}
                 {rating === 3 && (
-                  <span className="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                  <span className="text-xs font-black text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-300">
                     🤔 Experiencia regular, cuéntanos qué mejorar
                   </span>
                 )}
                 {rating === 2 && (
-                  <span className="text-xs font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
+                  <span className="text-xs font-black text-rose-800 bg-rose-50 px-3 py-1 rounded-full border border-rose-300">
                     😔 Lamentamos la demora o inconveniente
                   </span>
                 )}
                 {rating === 1 && (
-                  <span className="text-xs font-bold text-rose-800 bg-rose-100 px-2.5 py-0.5 rounded-full border border-rose-300">
+                  <span className="text-xs font-black text-rose-900 bg-rose-100 px-3 py-1 rounded-full border border-rose-300">
                     ⚠️ Muy insatisfecho, queremos resolverlo contigo
                   </span>
                 )}
@@ -269,7 +273,7 @@ export default function PublicFeedbackPage() {
                 {/* 1 - 3 Stars: Negative / Recovery Path */}
                 {!isPromoter ? (
                   <div className="space-y-2">
-                    <label className="block text-xs font-bold text-slate-700">
+                    <label className="block text-xs font-black text-slate-800">
                       ¿Qué aspecto no cumplió tus expectativas? (Opcional)
                     </label>
                     <div className="flex flex-wrap gap-1.5">
@@ -281,10 +285,10 @@ export default function PublicFeedbackPage() {
                             key={reason}
                             onClick={() => toggleReason(reason)}
                             className={cn(
-                              "text-xs px-2.5 py-1 rounded-xl border transition-all",
+                              "text-xs px-3 py-1.5 rounded-xl border transition-all font-bold",
                               isSelected
-                                ? "bg-rose-50 text-rose-800 border-rose-300 font-semibold"
-                                : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100"
+                                ? "bg-rose-50 text-rose-900 border-rose-300"
+                                : "bg-white text-slate-800 border-slate-300 hover:bg-slate-50"
                             )}
                           >
                             {reason}
@@ -296,7 +300,7 @@ export default function PublicFeedbackPage() {
                 ) : (
                   /* 4 - 5 Stars: Positive Highlights Path */
                   <div className="space-y-2">
-                    <label className="block text-xs font-bold text-slate-700">
+                    <label className="block text-xs font-black text-slate-800">
                       ¿Qué fue lo más destacado de tu visita?
                     </label>
                     <div className="flex flex-wrap gap-1.5">
@@ -308,10 +312,10 @@ export default function PublicFeedbackPage() {
                             key={highlight}
                             onClick={() => toggleHighlight(highlight)}
                             className={cn(
-                              "text-xs px-2.5 py-1 rounded-xl border transition-all",
+                              "text-xs px-3 py-1.5 rounded-xl border transition-all font-bold",
                               isSelected
-                                ? "bg-emerald-50 text-emerald-800 border-emerald-300 font-semibold"
-                                : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100"
+                                ? "bg-emerald-50 text-emerald-900 border-emerald-300"
+                                : "bg-white text-slate-800 border-slate-300 hover:bg-slate-50"
                             )}
                           >
                             {highlight}

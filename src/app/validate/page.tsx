@@ -162,14 +162,14 @@ export default function ValidateCouponPage() {
             )}
 
             {/* Camera / Mock Scan Helper */}
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <div className="p-4 rounded-2xl bg-slate-100 border border-slate-300">
               <div className="flex items-center justify-between mb-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
-                  <QrCode className="w-4 h-4 text-emerald-600" />
+                <div className="flex items-center gap-2 text-xs font-black text-slate-900">
+                  <QrCode className="w-4 h-4 text-emerald-700" />
                   <span>Prueba Rápida en Pantalla (Click para simular escaneo):</span>
                 </div>
               </div>
-              <p className="text-[11px] text-slate-500 mb-3">
+              <p className="text-[11px] text-slate-700 mb-3 font-semibold">
                 Selecciona cualquier cupón activo actualmente para simular el escaneo con la cámara del POS:
               </p>
 
@@ -178,10 +178,10 @@ export default function ValidateCouponPage() {
                   <button
                     key={coup.id}
                     onClick={() => handleValidate(coup.code)}
-                    className="text-xs px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-lg transition-colors font-mono font-medium flex items-center gap-1.5 shadow-2xs"
+                    className="text-xs px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 rounded-xl transition-colors font-mono font-bold flex items-center gap-1.5 shadow-2xs"
                   >
                     <span>{coup.code}</span>
-                    <span className="text-emerald-600 font-bold text-[10px]">({coup.customerName.split(" ")[0]})</span>
+                    <span className="text-emerald-700 font-black text-[10px]">({coup.customerName.split(" ")[0]})</span>
                   </button>
                 ))}
               </div>
@@ -192,45 +192,45 @@ export default function ValidateCouponPage() {
         {/* Right Column: Active coupons list & Anti-fraud rules */}
         <div className="lg:col-span-5 space-y-6">
           {/* Instructions and Rules */}
-          <div className="glass-panel p-6 rounded-3xl space-y-4">
-            <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4" />
+          <div className="glass-panel p-6 rounded-3xl border border-slate-200 space-y-4">
+            <div className="flex items-center gap-2 text-emerald-800 font-extrabold text-xs uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>Protocolo Anti-Fraude (PRD Sec. 21 y 53)</span>
             </div>
 
-            <ul className="space-y-2.5 text-xs text-slate-600">
+            <ul className="space-y-2.5 text-xs text-slate-800 font-medium">
               <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                <span><strong>Un Solo Uso:</strong> Una vez validado, el cupón pasa inmediatamente a estado "redeemed" y no puede ser usado de nuevo.</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                <span><strong className="text-slate-950 font-bold">Un Solo Uso:</strong> Una vez validado, el cupón pasa inmediatamente a estado "redeemed" y no puede ser usado de nuevo.</span>
               </li>
               <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                <span><strong>Fecha de Caducidad:</strong> Los cupones emitidos vencen automáticamente a los 30 días de su creación.</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                <span><strong className="text-slate-950 font-bold">Fecha de Caducidad:</strong> Los cupones emitidos vencen automáticamente a los 30 días de su creación.</span>
               </li>
               <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                <span><strong>Auditoría:</strong> Queda registrado el nombre del personal, la fecha y la hora exacta del canje.</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                <span><strong className="text-slate-950 font-bold">Auditoría:</strong> Queda registrado el nombre del personal, la fecha y la hora exacta del canje.</span>
               </li>
             </ul>
           </div>
 
           {/* Quick Stats */}
-          <div className="glass-panel p-6 rounded-3xl">
-            <h3 className="text-sm font-bold text-slate-900 mb-3">Cupones Pendientes por Canjear</h3>
+          <div className="glass-panel p-6 rounded-3xl border border-slate-200">
+            <h3 className="text-sm font-black text-slate-900 mb-3">Cupones Pendientes por Canjear</h3>
             <div className="space-y-2.5">
               {activeCoupons.length === 0 ? (
-                <p className="text-xs text-slate-400 py-3 text-center">No hay cupones activos pendientes.</p>
+                <p className="text-xs text-slate-600 py-3 text-center font-medium">No hay cupones activos pendientes.</p>
               ) : (
                 activeCoupons.slice(0, 4).map((c) => (
                   <div
                     key={c.id}
-                    className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between text-xs"
+                    className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs"
                   >
                     <div>
-                      <p className="font-bold text-slate-900">{c.title}</p>
-                      <p className="text-[11px] text-slate-500 font-medium">{c.customerName} • {c.code}</p>
+                      <p className="font-extrabold text-slate-900">{c.title}</p>
+                      <p className="text-[11px] text-slate-600 font-semibold">{c.customerName} • {c.code}</p>
                     </div>
-                    <span className="text-[10px] text-emerald-800 font-bold px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
+                    <span className="text-[10px] text-emerald-800 font-black px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-300">
                       Activo
                     </span>
                   </div>

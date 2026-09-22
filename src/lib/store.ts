@@ -220,6 +220,9 @@ export class ReviewFlowStore {
       expiresAt: expiresDate.toISOString(),
       status: "active",
       createdAt: now,
+      usageCount: 0,
+      maxUsages: 1,
+      redemptions: [],
     };
 
     const feedback: Feedback = {
@@ -262,10 +265,13 @@ export class ReviewFlowStore {
       };
     }
 
-    if (coupon.status === "redeemed") {
+    const currentUsages = coupon.usageCount ?? (coupon.status === "redeemed" ? 1 : 0);
+    const maxUsages = coupon.maxUsages || 1;
+
+    if (coupon.status === "redeemed" || currentUsages >= maxUsages) {
       return {
         success: false,
-        message: `Este cupón YA FUE CANJEADO el ${new Date(
+        message: `Este cupón YA FUE CANJEADO (${currentUsages} de ${maxUsages} veces ocupado) el ${new Date(
           coupon.redeemedAt || ""
         ).toLocaleDateString("es-CL")} por ${coupon.redeemedByStaff || "personal"}.`,
         coupon,
@@ -284,15 +290,28 @@ export class ReviewFlowStore {
       };
     }
 
-    // Success: mark redeemed!
-    coupon.status = "redeemed";
-    coupon.redeemedAt = new Date().toISOString();
+    // Success: mark redeemed and update usage counter
+    const nowIso = new Date().toISOString();
+    coupon.usageCount = currentUsages + 1;
+    coupon.maxUsages = maxUsages;
+    if (!coupon.redemptions) coupon.redemptions = [];
+    coupon.redemptions.unshift({
+      id: `red-${Date.now()}`,
+      redeemedAt: nowIso,
+      redeemedByStaff: staffName,
+      notes: `Canje registrado en POS caja (${coupon.usageCount}/${coupon.maxUsages})`,
+    });
+
+    if (coupon.usageCount >= coupon.maxUsages) {
+      coupon.status = "redeemed";
+    }
+    coupon.redeemedAt = nowIso;
     coupon.redeemedByStaff = staffName;
 
     this.notify();
     return {
       success: true,
-      message: `¡Cupón válido! Se aplicó con éxito: ${coupon.title}.`,
+      message: `¡Cupón válido! Se aplicó con éxito: ${coupon.title} (Uso ${coupon.usageCount} de ${coupon.maxUsages}).`,
       coupon,
     };
   }

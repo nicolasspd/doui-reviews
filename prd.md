@@ -29,34 +29,34 @@ Después de cada cambio relevante:
 
 ReviewFlow es un SaaS B2B para negocios locales que permite transformar la experiencia posterior a una atención en un sistema estructurado de:
 
-* recopilación de feedback;
-* solicitud de reviews;
-* gestión de reputación;
-* generación de cupones;
-* validación de cupones mediante QR;
-* analytics;
-* automatización de comunicaciones;
-* seguimiento de satisfacción del cliente.
+- recopilación de feedback;
+- solicitud de reviews;
+- gestión de reputación;
+- generación de cupones;
+- validación de cupones mediante QR;
+- analytics;
+- automatización de comunicaciones;
+- seguimiento de satisfacción del cliente.
 
 El producto será utilizado directamente por negocios locales.
 
 Ejemplos de clientes:
 
-* restaurantes;
-* clínicas;
-* peluquerías;
-* barberías;
-* centros médicos;
-* talleres;
-* gimnasios;
-* spas;
-* dentistas;
-* inmobiliarias;
-* servicios profesionales;
-* concesionarios;
-* retail;
-* hoteles;
-* cualquier negocio con atención recurrente a clientes.
+- restaurantes;
+- clínicas;
+- peluquerías;
+- barberías;
+- centros médicos;
+- talleres;
+- gimnasios;
+- spas;
+- dentistas;
+- inmobiliarias;
+- servicios profesionales;
+- concesionarios;
+- retail;
+- hoteles;
+- cualquier negocio con atención recurrente a clientes.
 
 ---
 
@@ -68,12 +68,12 @@ Los negocios locales tienen tres problemas principales:
 
 Después de una atención, normalmente no existe ningún mecanismo para saber:
 
-* qué tan satisfecho quedó el cliente;
-* qué salió mal;
-* qué servicio recibió;
-* cuándo ocurrió;
-* qué empleado o sucursal estuvo involucrado;
-* qué problemas se repiten.
+- qué tan satisfecho quedó el cliente;
+- qué salió mal;
+- qué servicio recibió;
+- cuándo ocurrió;
+- qué empleado o sucursal estuvo involucrado;
+- qué problemas se repiten.
 
 ### Problema 2 — Las reviews se solicitan manualmente
 
@@ -87,11 +87,11 @@ La mayoría de las veces esto no ocurre de forma consistente.
 
 El negocio obtiene una review, pero no necesariamente consigue:
 
-* recuperar clientes insatisfechos;
-* incentivar una nueva visita;
-* identificar problemas operacionales;
-* generar campañas;
-* convertir feedback en datos.
+- recuperar clientes insatisfechos;
+- incentivar una nueva visita;
+- identificar problemas operacionales;
+- generar campañas;
+- convertir feedback en datos.
 
 ReviewFlow debe cerrar ese loop.
 
@@ -125,15 +125,15 @@ El sistema NO debe implementar review gating.
 
 No se debe diseñar un flujo donde:
 
-* 5 estrellas → Google;
-* 1-4 estrellas → se oculta Google.
+- 5 estrellas → Google;
+- 1-4 estrellas → se oculta Google.
 
 Tampoco se debe:
 
-* solicitar exclusivamente reviews positivas;
-* impedir reviews negativas;
-* ofrecer descuentos a cambio de publicar una review;
-* ofrecer descuentos a cambio de modificar o eliminar una review negativa.
+- solicitar exclusivamente reviews positivas;
+- impedir reviews negativas;
+- ofrecer descuentos a cambio de publicar una review;
+- ofrecer descuentos a cambio de modificar o eliminar una review negativa.
 
 El flujo debe permitir que la experiencia sea auténtica y que la solicitud de review sea neutral.
 
@@ -149,10 +149,10 @@ El cliente puede:
 
 El cupón NO puede estar condicionado a:
 
-* publicar una review de Google;
-* entregar 5 estrellas;
-* cambiar una review;
-* eliminar una review.
+- publicar una review de Google;
+- entregar 5 estrellas;
+- cambiar una review;
+- eliminar una review.
 
 La aplicación debe tener una configuración explícita:
 
@@ -174,16 +174,16 @@ Crear el sistema SaaS más simple para que un negocio local pueda:
 
 ## Objetivos secundarios
 
-* aumentar el volumen de feedback recopilado;
-* automatizar solicitudes;
-* reducir el trabajo manual;
-* detectar clientes insatisfechos;
-* recuperar clientes;
-* aumentar recurrencia;
-* generar campañas;
-* medir satisfacción;
-* administrar promociones;
-* eliminar procesos manuales de cupones.
+- aumentar el volumen de feedback recopilado;
+- automatizar solicitudes;
+- reducir el trabajo manual;
+- detectar clientes insatisfechos;
+- recuperar clientes;
+- aumentar recurrencia;
+- generar campañas;
+- medir satisfacción;
+- administrar promociones;
+- eliminar procesos manuales de cupones.
 
 ---
 
@@ -201,27 +201,27 @@ Ejemplo:
 
 Ese usuario puede:
 
-* acceder al dashboard;
-* ver feedback;
-* configurar campañas;
-* crear cupones;
-* validar cupones;
-* configurar Google;
-* configurar emails;
-* ver analytics;
-* configurar branding;
-* administrar su negocio.
+- acceder al dashboard;
+- ver feedback;
+- configurar campañas;
+- crear cupones;
+- validar cupones;
+- configurar Google;
+- configurar emails;
+- ver analytics;
+- configurar branding;
+- administrar su negocio.
 
 ### Futuro
 
 La arquitectura DEBE permitir posteriormente:
 
-* múltiples usuarios;
-* roles;
-* sucursales;
-* empleados;
-* managers;
-* franquicias.
+- múltiples usuarios;
+- roles;
+- sucursales;
+- empleados;
+- managers;
+- franquicias.
 
 Pero no es necesario implementar RBAC completo en MVP.
 
@@ -247,16 +247,16 @@ La autorización debe verificarse server-side.
 
 ## Frontend
 
-* Next.js
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
-* Motion
-* Recharts
-* Lucide Icons
-* React Hook Form
-* Zod
-* TanStack Query
+- Next.js
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Motion
+- Recharts
+- Lucide Icons
+- React Hook Form
+- Zod
+- TanStack Query
 
 ## Backend
 
@@ -264,12 +264,12 @@ Next.js App Router / Route Handlers / Server Actions según el caso.
 
 Separar claramente:
 
-* UI;
-* dominio;
-* acceso a datos;
-* servicios externos;
-* jobs;
-* analytics.
+- UI;
+- dominio;
+- acceso a datos;
+- servicios externos;
+- jobs;
+- analytics.
 
 ## Database
 
@@ -277,7 +277,7 @@ PostgreSQL.
 
 ORM:
 
-* Prisma o Drizzle.
+- Prisma o Drizzle.
 
 Preferencia inicial:
 
@@ -289,9 +289,9 @@ por control explícito del schema y queries.
 
 Diseñar abstraction layer para poder utilizar:
 
-* Supabase Auth;
-* Clerk;
-* Auth.js.
+- Supabase Auth;
+- Clerk;
+- Auth.js.
 
 El sistema debe evitar acoplar el dominio a un proveedor de auth.
 
@@ -313,20 +313,20 @@ Cada cupón tendrá un identificador/token único.
 
 Object storage para:
 
-* logos;
-* assets del negocio;
-* futuras imágenes.
+- logos;
+- assets del negocio;
+- futuras imágenes.
 
 ## Jobs
 
 Sistema de jobs para:
 
-* emails;
-* reminders;
-* campañas;
-* expiración de cupones;
-* analytics;
-* reintentos.
+- emails;
+- reminders;
+- campañas;
+- expiración de cupones;
+- analytics;
+- reintentos.
 
 ---
 
@@ -418,9 +418,9 @@ Cinco estrellas grandes.
 
 Opcionalmente:
 
-* selección mediante emojis;
-* interacción visual;
-* microanimación.
+- selección mediante emojis;
+- interacción visual;
+- microanimación.
 
 Después de seleccionar:
 
@@ -430,9 +430,9 @@ Textarea.
 
 Opcional:
 
-* nombre;
-* email;
-* teléfono.
+- nombre;
+- email;
+- teléfono.
 
 No pedir información innecesaria.
 
@@ -442,16 +442,16 @@ No pedir información innecesaria.
 
 Cada feedback tendrá:
 
-* rating;
-* comentario;
-* customer;
-* fecha;
-* servicio;
-* campaign;
-* request;
-* coupon;
-* source;
-* status.
+- rating;
+- comentario;
+- customer;
+- fecha;
+- servicio;
+- campaign;
+- request;
+- coupon;
+- source;
+- status.
 
 Ratings:
 
@@ -523,9 +523,9 @@ Opcionalmente:
 
 Campos:
 
-* email;
-* teléfono;
-* preferencia de contacto.
+- email;
+- teléfono;
+- preferencia de contacto.
 
 Esto genera un ticket interno de recuperación.
 
@@ -559,10 +559,10 @@ El producto tendrá un sistema propio de cupones.
 
 Permitir que el negocio entregue incentivos por acciones internas legítimas, por ejemplo:
 
-* completar feedback;
-* participar en una encuesta;
-* próxima visita;
-* campaña específica.
+- completar feedback;
+- participar en una encuesta;
+- próxima visita;
+- campaña específica.
 
 El incentivo nunca debe depender de publicar una review de Google.
 
@@ -660,8 +660,8 @@ El negocio podrá abrir:
 
 La interfaz debe permitir:
 
-* escanear QR;
-* ingresar código manualmente.
+- escanear QR;
+- ingresar código manualmente.
 
 Al escanear:
 
@@ -770,10 +770,10 @@ rating promedio
 
 Permitir:
 
-* 7 días;
-* 30 días;
-* 90 días;
-* custom.
+- 7 días;
+- 30 días;
+- 90 días;
+- custom.
 
 Mostrar tooltip rico.
 
@@ -840,24 +840,24 @@ Click abre drawer.
 
 Mostrar:
 
-* rating;
-* comentario;
-* cliente;
-* fecha;
-* servicio;
-* empleado si existe;
-* campaña;
-* request;
-* coupon;
-* Google CTA clicked;
-* recovery status.
+- rating;
+- comentario;
+- cliente;
+- fecha;
+- servicio;
+- empleado si existe;
+- campaña;
+- request;
+- coupon;
+- Google CTA clicked;
+- recovery status.
 
 Actions:
 
-* contact customer;
-* create coupon;
-* mark resolved;
-* add internal note.
+- contact customer;
+- create coupon;
+- mark resolved;
+- add internal note.
 
 ---
 
@@ -904,13 +904,13 @@ Settings
 
 Feedback page:
 
-* filters;
-* rating;
-* date;
-* campaign;
-* service;
-* status;
-* search.
+- filters;
+- rating;
+- date;
+- campaign;
+- service;
+- status;
+- search.
 
 ---
 
@@ -1027,16 +1027,16 @@ Importar clientes.
 
 Integraciones:
 
-* POS;
-* CRM;
-* booking systems;
-* Shopify;
-* WooCommerce;
-* Calendly;
-* Stripe;
-* WhatsApp;
-* Zapier;
-* Make.
+- POS;
+- CRM;
+- booking systems;
+- Shopify;
+- WooCommerce;
+- Calendly;
+- Stripe;
+- WhatsApp;
+- Zapier;
+- Make.
 
 La arquitectura debe permitir agregar triggers posteriormente.
 
@@ -1126,13 +1126,13 @@ Usar Resend.
 
 Cada email debe tener:
 
-* responsive HTML;
-* branding del negocio;
-* logo;
-* CTA;
-* unsubscribe cuando corresponda;
-* tracking;
-* fallback text.
+- responsive HTML;
+- branding del negocio;
+- logo;
+- CTA;
+- unsubscribe cuando corresponda;
+- tracking;
+- fallback text.
 
 Templates:
 
@@ -1176,35 +1176,35 @@ Nunca llamar directamente a Resend desde componentes UI.
 
 Cada negocio podrá configurar:
 
-* logo (URL propia o predefinidos de industria);
-* primary color;
-* secondary color;
-* business name;
-* welcome message;
-* thank-you message;
-* fondo visual del formulario del cliente (degradados elegantes, fotos de galería curada, color sólido o imagen personalizada con control de opacidad).
+- logo;
+- primary color;
+- secondary color;
+- business name;
+- welcome message;
+- thank-you message.
 
-El sistema mantiene límites de diseño garantizando un overlay oscuro/atenuado con legibilidad garantizada para los textos y tarjetas.
+Pero el sistema debe mantener límites de diseño.
+
+No permitir que el usuario destruya la legibilidad.
 
 ---
 
 # 42. Design system
 
-El producto opera en un **Light Mode editorial y moderno** (paleta slate suave `#f8fafc`, tarjetas blancas nítidas con bordes sutiles `#e2e8f0`, acentos esmeralda y ámbar), evitando fondos negros o estéticas genéricas de IA.
-Basado en shadcn/ui.
+El producto debe tener un design system propio basado en shadcn/ui.
 
 No utilizar componentes arbitrarios de diferentes librerías sin criterio.
 
 Principios:
 
-* consistencia;
-* contraste;
-* jerarquía;
-* whitespace;
-* estados claros;
-* responsive;
-* accesibilidad;
-* motion con propósito.
+- consistencia;
+- contraste;
+- jerarquía;
+- whitespace;
+- estados claros;
+- responsive;
+- accesibilidad;
+- motion con propósito.
 
 ---
 
@@ -1216,25 +1216,25 @@ La estética objetivo:
 
 No:
 
-* dashboard corporativo aburrido;
-* purple AI gradient;
-* exceso de glassmorphism;
-* neon;
-* cyberpunk;
-* demasiadas cards;
-* tablas gigantes;
-* UI genérica generada por IA.
+- dashboard corporativo aburrido;
+- purple AI gradient;
+- exceso de glassmorphism;
+- neon;
+- cyberpunk;
+- demasiadas cards;
+- tablas gigantes;
+- UI genérica generada por IA.
 
 Sí:
 
-* tipografía editorial;
-* números grandes;
-* whitespace;
-* gráficos limpios;
-* microinteracciones;
-* superficies con profundidad sutil;
-* animaciones suaves;
-* estados cuidadosamente diseñados.
+- tipografía editorial;
+- números grandes;
+- whitespace;
+- gráficos limpios;
+- microinteracciones;
+- superficies con profundidad sutil;
+- animaciones suaves;
+- estados cuidadosamente diseñados.
 
 La interfaz debe sentirse más cercana a:
 
@@ -1288,10 +1288,10 @@ Transiciones discretas entre páginas.
 
 Evitar:
 
-* animaciones constantes;
-* parallax innecesario;
-* bouncing;
-* efectos que retrasen acciones.
+- animaciones constantes;
+- parallax innecesario;
+- bouncing;
+- efectos que retrasen acciones.
 
 Debe existir soporte para:
 
@@ -1329,15 +1329,15 @@ WCAG como objetivo.
 
 Requisitos:
 
-* keyboard navigation;
-* visible focus states;
-* semantic HTML;
-* ARIA cuando corresponda;
-* contraste;
-* labels;
-* touch targets;
-* reduced motion;
-* screen-reader friendly forms.
+- keyboard navigation;
+- visible focus states;
+- semantic HTML;
+- ARIA cuando corresponda;
+- contraste;
+- labels;
+- touch targets;
+- reduced motion;
+- screen-reader friendly forms.
 
 ---
 
@@ -1347,10 +1347,10 @@ Nunca mostrar pantallas vacías.
 
 Usar:
 
-* skeletons;
-* optimistic updates cuando sea seguro;
-* loading indicators;
-* empty states.
+- skeletons;
+- optimistic updates cuando sea seguro;
+- loading indicators;
+- empty states.
 
 Ejemplo:
 
@@ -1429,11 +1429,11 @@ QR asociado a campaña específica.
 
 QR para:
 
-* mesa;
-* caja;
-* recepción;
-* ticket;
-* packaging.
+- mesa;
+- caja;
+- recepción;
+- ticket;
+- packaging.
 
 ---
 
@@ -1449,10 +1449,10 @@ Pero cada request individual tendrá token.
 
 Esto permite:
 
-* QR permanente;
-* links únicos;
-* tracking;
-* campaign attribution.
+- QR permanente;
+- links únicos;
+- tracking;
+- campaign attribution.
 
 ---
 
@@ -1460,22 +1460,22 @@ Esto permite:
 
 Requisitos:
 
-* tenant isolation;
-* server-side authorization;
-* signed tokens;
-* rate limiting;
-* CSRF protection donde aplique;
-* input validation;
-* SQL injection protection;
-* XSS protection;
-* encrypted secrets;
-* audit logs.
+- tenant isolation;
+- server-side authorization;
+- signed tokens;
+- rate limiting;
+- CSRF protection donde aplique;
+- input validation;
+- SQL injection protection;
+- XSS protection;
+- encrypted secrets;
+- audit logs.
 
 No exponer:
 
-* customer email;
-* customer phone;
-* internal notes;
+- customer email;
+- customer phone;
+- internal notes;
 
 en URLs públicas.
 
@@ -1485,12 +1485,12 @@ en URLs públicas.
 
 El sistema debe detectar:
 
-* demasiadas solicitudes desde una misma IP;
-* múltiples submissions sospechosos;
-* spam;
-* bots;
-* coupon brute force;
-* repeated redemption attempts.
+- demasiadas solicitudes desde una misma IP;
+- múltiples submissions sospechosos;
+- spam;
+- bots;
+- coupon brute force;
+- repeated redemption attempts.
 
 No bloquear automáticamente clientes reales sin señales suficientes.
 
@@ -1686,37 +1686,37 @@ Dashboard
 
 ## Acquisition
 
-* feedback requests sent;
-* delivery rate;
-* open rate;
-* click rate;
-* completion rate.
+- feedback requests sent;
+- delivery rate;
+- open rate;
+- click rate;
+- completion rate.
 
 ## Satisfaction
 
-* average rating;
-* rating distribution;
-* ratings by day;
-* ratings by campaign;
-* ratings by service;
-* ratings by employee;
-* ratings by location.
+- average rating;
+- rating distribution;
+- ratings by day;
+- ratings by campaign;
+- ratings by service;
+- ratings by employee;
+- ratings by location.
 
 ## Reputation
 
-* Google CTA clicks;
-* Google outbound clicks;
-* feedback volume.
+- Google CTA clicks;
+- Google outbound clicks;
+- feedback volume.
 
 No asumir que un click equivale a una Google review publicada.
 
 ## Retention
 
-* coupons issued;
-* coupons redeemed;
-* redemption rate;
-* recovery cases;
-* recovery resolution.
+- coupons issued;
+- coupons redeemed;
+- redemption rate;
+- recovery cases;
+- recovery resolution.
 
 ---
 
@@ -1937,15 +1937,15 @@ customer.exported
 
 El negocio podrá exportar:
 
-* feedback;
-* customers;
-* coupons;
-* analytics.
+- feedback;
+- customers;
+- coupons;
+- analytics.
 
 Formatos:
 
-* CSV;
-* posteriormente XLSX.
+- CSV;
+- posteriormente XLSX.
 
 ---
 
@@ -1955,11 +1955,11 @@ Customer data debe tratarse como información privada.
 
 El sistema debe:
 
-* minimizar datos;
-* permitir eliminación;
-* permitir exportación;
-* documentar retención;
-* evitar exponer PII públicamente.
+- minimizar datos;
+- permitir eliminación;
+- permitir exportación;
+- documentar retención;
+- evitar exponer PII públicamente.
 
 Diseñar para cumplir normativa aplicable según mercado.
 
@@ -2027,9 +2027,9 @@ Debe quedar preparado aunque no sea MVP.
 
 Implementar posteriormente con:
 
-* search;
-* navigation;
-* actions.
+- search;
+- navigation;
+- actions.
 
 Ejemplos:
 
@@ -2049,58 +2049,58 @@ El MVP DEBE incluir:
 
 ### Authentication
 
-* signup;
-* login;
-* logout.
+- signup;
+- login;
+- logout.
 
 ### Business
 
-* create business;
-* logo;
-* branding.
+- create business;
+- logo;
+- branding.
 
 ### Feedback
 
-* generate request;
-* public feedback page;
-* rating;
-* comment;
-* thank-you screen.
+- generate request;
+- public feedback page;
+- rating;
+- comment;
+- thank-you screen.
 
 ### Google
 
-* configurable Google review URL;
-* neutral CTA.
+- configurable Google review URL;
+- neutral CTA.
 
 ### Coupons
 
-* create campaign coupon;
-* issue coupon;
-* generate QR;
-* validate QR;
-* redeem coupon.
+- create campaign coupon;
+- issue coupon;
+- generate QR;
+- validate QR;
+- redeem coupon.
 
 ### Dashboard
 
-* feedback count;
-* average rating;
-* rating distribution;
-* recent feedback;
-* coupons issued;
-* coupons redeemed.
+- feedback count;
+- average rating;
+- rating distribution;
+- recent feedback;
+- coupons issued;
+- coupons redeemed.
 
 ### Email
 
-* send feedback request;
-* basic branded email.
+- send feedback request;
+- basic branded email.
 
 ### Analytics
 
-* requests;
-* opens;
-* completions;
-* ratings;
-* coupon metrics.
+- requests;
+- opens;
+- completions;
+- ratings;
+- coupon metrics.
 
 ---
 
@@ -2108,18 +2108,18 @@ El MVP DEBE incluir:
 
 No implementar inicialmente:
 
-* WhatsApp;
-* SMS;
-* POS integrations;
-* multi-location;
-* complex RBAC;
-* AI sentiment analysis;
-* automated responses;
-* CRM;
-* advanced segmentation;
-* billing;
-* white-label;
-* public review aggregation from multiple platforms.
+- WhatsApp;
+- SMS;
+- POS integrations;
+- multi-location;
+- complex RBAC;
+- AI sentiment analysis;
+- automated responses;
+- CRM;
+- advanced segmentation;
+- billing;
+- white-label;
+- public review aggregation from multiple platforms.
 
 ---
 
@@ -2127,28 +2127,28 @@ No implementar inicialmente:
 
 Después de validar MVP:
 
-* WhatsApp;
-* multiple campaigns;
-* advanced analytics;
-* customer profiles;
-* recovery workflow;
-* segmentation;
-* scheduled campaigns;
-* CSV import;
-* integrations.
+- WhatsApp;
+- multiple campaigns;
+- advanced analytics;
+- customer profiles;
+- recovery workflow;
+- segmentation;
+- scheduled campaigns;
+- CSV import;
+- integrations.
 
 ---
 
 # 77. Phase 3
 
-* multi-location;
-* roles;
-* enterprise;
-* API;
-* webhooks;
-* integrations;
-* advanced retention;
-* AI insights.
+- multi-location;
+- roles;
+- enterprise;
+- API;
+- webhooks;
+- integrations;
+- advanced retention;
+- AI insights.
 
 ---
 
@@ -2182,20 +2182,20 @@ Nunca inventar conclusions.
 
 ### Sentiment
 
-* positive;
-* neutral;
-* negative.
+- positive;
+- neutral;
+- negative.
 
 ### Topic extraction
 
 Ejemplos:
 
-* waiting time;
-* service;
-* price;
-* staff;
-* cleanliness;
-* quality.
+- waiting time;
+- service;
+- price;
+- staff;
+- cleanliness;
+- quality.
 
 ### Weekly summary
 
@@ -2241,42 +2241,42 @@ Antes de considerar una pantalla terminada, revisar:
 
 ### Visual
 
-* typography;
-* hierarchy;
-* spacing;
-* color;
-* density;
-* alignment;
-* empty states.
+- typography;
+- hierarchy;
+- spacing;
+- color;
+- density;
+- alignment;
+- empty states.
 
 ### UX
 
-* primary action obvious;
-* feedback clear;
-* errors recoverable;
-* no unnecessary clicks;
-* mobile usable.
+- primary action obvious;
+- feedback clear;
+- errors recoverable;
+- no unnecessary clicks;
+- mobile usable.
 
 ### Motion
 
-* meaningful;
-* fast;
-* subtle;
-* reduced-motion compatible.
+- meaningful;
+- fast;
+- subtle;
+- reduced-motion compatible.
 
 ### Accessibility
 
-* keyboard;
-* focus;
-* contrast;
-* semantic labels.
+- keyboard;
+- focus;
+- contrast;
+- semantic labels.
 
 ### Performance
 
-* avoid unnecessary client components;
-* lazy load heavy charts;
-* optimize images;
-* avoid excessive JS.
+- avoid unnecessary client components;
+- lazy load heavy charts;
+- optimize images;
+- avoid excessive JS.
 
 ---
 
@@ -2284,18 +2284,18 @@ Antes de considerar una pantalla terminada, revisar:
 
 NO utilizar:
 
-* Inter automáticamente sin analizar alternativas;
-* purple gradient por defecto;
-* glassmorphism everywhere;
-* giant hero gradients;
-* excessive rounded cards;
-* random animations;
-* fake metrics;
-* decorative charts without data;
-* generic dashboard templates;
-* unnecessary modals;
-* huge sidebars;
-* five different UI libraries.
+- Inter automáticamente sin analizar alternativas;
+- purple gradient por defecto;
+- glassmorphism everywhere;
+- giant hero gradients;
+- excessive rounded cards;
+- random animations;
+- fake metrics;
+- decorative charts without data;
+- generic dashboard templates;
+- unnecessary modals;
+- huge sidebars;
+- five different UI libraries.
 
 ---
 
@@ -2342,12 +2342,12 @@ Preferir Server Components.
 
 Usar Client Components únicamente cuando se necesite:
 
-* interaction;
-* browser API;
-* animation;
-* state;
-* scanner;
-* charts.
+- interaction;
+- browser API;
+- animation;
+- state;
+- scanner;
+- charts.
 
 ---
 
@@ -2357,18 +2357,18 @@ Mínimo:
 
 ### Unit
 
-* coupon validation;
-* coupon expiration;
-* rating calculations;
-* analytics formulas;
-* token generation.
+- coupon validation;
+- coupon expiration;
+- rating calculations;
+- analytics formulas;
+- token generation.
 
 ### Integration
 
-* feedback request;
-* feedback submission;
-* coupon issuance;
-* coupon redemption.
+- feedback request;
+- feedback submission;
+- coupon issuance;
+- coupon redemption.
 
 ### E2E
 
@@ -2390,26 +2390,26 @@ Business signup
 
 El MVP no está terminado hasta que:
 
-* un negocio puede registrarse;
-* puede configurar su Google URL;
-* puede generar una feedback request;
-* un cliente puede abrir el link en móvil;
-* puede enviar rating;
-* puede enviar feedback;
-* el negocio puede ver el feedback;
-* dashboard actualiza métricas;
-* coupon puede ser generado;
-* QR puede ser escaneado;
-* coupon puede ser redeemed;
-* no se puede redeemear dos veces;
-* email puede enviarse;
-* tenant isolation funciona;
-* responsive funciona;
-* accessibility básica funciona;
-* errores están manejados;
-* loading states existen;
-* empty states existen;
-* PRD está actualizado.
+- un negocio puede registrarse;
+- puede configurar su Google URL;
+- puede generar una feedback request;
+- un cliente puede abrir el link en móvil;
+- puede enviar rating;
+- puede enviar feedback;
+- el negocio puede ver el feedback;
+- dashboard actualiza métricas;
+- coupon puede ser generado;
+- QR puede ser escaneado;
+- coupon puede ser redeemed;
+- no se puede redeemear dos veces;
+- email puede enviarse;
+- tenant isolation funciona;
+- responsive funciona;
+- accessibility básica funciona;
+- errores están manejados;
+- loading states existen;
+- empty states existen;
+- PRD está actualizado.
 
 ---
 
@@ -2453,15 +2453,15 @@ Antes de implementar una feature:
 
 El agente de desarrollo DEBE:
 
-* leer este PRD antes de modificar arquitectura;
-* no inventar funcionalidades fuera del PRD;
-* no eliminar funcionalidades sin documentarlo;
-* no cambiar stack sin justificarlo;
-* no introducir dependencias innecesarias;
-* reutilizar componentes existentes;
-* mantener design system;
-* mantener consistencia visual;
-* actualizar el PRD después de cambios relevantes.
+- leer este PRD antes de modificar arquitectura;
+- no inventar funcionalidades fuera del PRD;
+- no eliminar funcionalidades sin documentarlo;
+- no cambiar stack sin justificarlo;
+- no introducir dependencias innecesarias;
+- reutilizar componentes existentes;
+- mantener design system;
+- mantener consistencia visual;
+- actualizar el PRD después de cambios relevantes.
 
 ---
 
@@ -2477,15 +2477,15 @@ Antes de crear cualquier pantalla:
 6. Elegir motion con propósito.
 7. Evitar estética genérica de IA.
 8. Diseñar estados:
+   - default;
+   - hover;
+   - active;
+   - loading;
+   - empty;
+   - error;
+   - success;
+   - disabled.
 
-   * default;
-   * hover;
-   * active;
-   * loading;
-   * empty;
-   * error;
-   * success;
-   * disabled.
 9. Revisar mobile.
 10. Revisar accessibility.
 
@@ -2538,12 +2538,12 @@ Customer interaction
 
 Supporting metrics:
 
-* feedback completion rate;
-* average rating;
-* recovery rate;
-* coupon redemption;
-* repeat customer rate;
-* campaign ROI.
+- feedback completion rate;
+- average rating;
+- recovery rate;
+- coupon redemption;
+- repeat customer rate;
+- campaign ROI.
 
 ---
 
@@ -2591,51 +2591,51 @@ La cuarta conecta directamente con el stack operacional del negocio.
 
 ## Sprint 1
 
-* project setup;
-* auth;
-* database;
-* tenant model;
-* design system;
-* dashboard shell;
-* business settings.
+- project setup;
+- auth;
+- database;
+- tenant model;
+- design system;
+- dashboard shell;
+- business settings.
 
 ## Sprint 2
 
-* feedback request;
-* public feedback page;
-* rating;
-* comments;
-* events.
+- feedback request;
+- public feedback page;
+- rating;
+- comments;
+- events.
 
 ## Sprint 3
 
-* dashboard;
-* analytics;
-* feedback table;
-* feedback detail.
+- dashboard;
+- analytics;
+- feedback table;
+- feedback detail.
 
 ## Sprint 4
 
-* coupon engine;
-* QR generation;
-* QR scanner;
-* redemption.
+- coupon engine;
+- QR generation;
+- QR scanner;
+- redemption.
 
 ## Sprint 5
 
-* email;
-* campaign builder;
-* onboarding.
+- email;
+- campaign builder;
+- onboarding.
 
 ## Sprint 6
 
-* polish;
-* animations;
-* accessibility;
-* responsive;
-* testing;
-* security;
-* deployment.
+- polish;
+- animations;
+- accessibility;
+- responsive;
+- testing;
+- security;
+- deployment.
 
 ---
 
@@ -2723,3 +2723,43 @@ Todo feature futuro debe responder:
 > ¿Esto mejora este loop, mejora la monetización del loop o aumenta la capacidad de escalarlo?
 
 Si no cumple ninguna de esas condiciones, no debe entrar al core del producto.
+
+---
+
+# 101. Onboarding Express (< 3 minutos) y Magic Auto-Setup
+
+El onboarding a la plataforma cuenta con dos modalidades calibradas:
+1. **Magic Auto-Setup ("Configurar por mí" en < 1 minuto)**:
+   - Requiere únicamente **Nombre del restaurante/negocio** y **Link de la página web / Google Maps / Instagram**.
+   - Pipeline de autoconfiguración:
+     - Detección inteligente de rubro gastronómico y generación de enlace a Google Reviews.
+     - Selección automática de fondo curado de alta hostelería con filtro de contraste oscuro (45%).
+     - Activación de regla de filtro: 4 y 5★ derivados a Google Maps con 1 clic; 1 a 3★ capturados en privado.
+     - Creación de cupón de retorno: "Postre de cortesía de la casa o 15% OFF en tu próxima visita".
+     - Generación de atril y QR de mesas listo para imprimir.
+2. **Configuración Guiada en 3 Pasos Rápidos (< 3 minutos)**:
+   - Paso 1 (45 seg): Identidad básica y enlace web/Maps.
+   - Paso 2 (45 seg): Diseño de fondo (presets curados de hostelería o degradados) y logo.
+   - Paso 3 (30 seg): Beneficio del cupón de fidelización y activación de filtro.
+
+---
+
+# 102. Auditoría y Trazabilidad de Cupones (Veces Ocupados)
+
+Cada cupón emitido en ReviewFlow cuenta con seguimiento granular de redención:
+- **usageCount**: Contador en tiempo real de cuántas veces ha sido ocupado el beneficio en caja.
+- **maxUsages**: Límite de usos permitidos (1 uso para cupones individuales de cliente, o N usos para promociones de atril/campaña).
+- **redemptions**: Historial auditable con timestamp, cajero/personal responsable, monto de boleta y notas.
+- **Métricas Globales**: KPI cards en `/coupons` con Total Emitidos, Total Veces Ocupados, Pendientes de Canje y Tasa de Redención (%).
+
+---
+
+# 103. Estándar de Contraste Light Mode (WCAG AAA)
+
+Para evitar elementos lavados o de baja legibilidad:
+- Textos primarios en `text-slate-900` o `text-slate-950` con pesos `font-bold` o `font-black`.
+- Textos secundarios en `text-slate-700` o `text-slate-800` (eliminando grises débiles como `text-slate-400` en cuerpos de texto).
+- Cajas de iconos con fondos pasteles enriquecidos (`bg-emerald-50`, `bg-amber-50`, `bg-rose-50`, `bg-blue-50`, `bg-teal-50`) con bordes contrastantes (`border-*-200/300`).
+- Barras de distribución con fondo de pista `bg-slate-200` y etiquetas numéricas `font-mono text-xs font-bold text-slate-800`.
+- Gráficas de Recharts con líneas de cuadrícula `stroke="#e2e8f0"`, ejes con etiquetas `#64748b` y grosor de trazo en 600.
+
