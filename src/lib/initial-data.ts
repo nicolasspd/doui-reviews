@@ -13,7 +13,12 @@ export const initialBusiness: Business = {
   primaryColor: "#059669", // Emerald
   welcomeMessage: "¿Cómo estuvo tu experiencia gastronómica hoy con nosotros?",
   thankYouMessage: "¡Muchas gracias por ayudarnos a ser mejores cada día!",
-  logoUrl: "🍝",
+  logoUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=150&auto=format&fit=crop&q=80",
+  bgType: "gradient",
+  bgGradient: "linear-gradient(135deg, #064e3b 0%, #0f172a 100%)",
+  bgColor: "#f8fafc",
+  bgPresetImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&auto=format&fit=crop&q=80",
+  bgOverlayOpacity: 0.65,
 };
 
 export const initialCustomers: Customer[] = [

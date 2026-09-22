@@ -12,7 +12,7 @@ interface DashboardShellProps {
 
 export function DashboardShell({ children, title, subtitle }: DashboardShellProps) {
   return (
-    <div className="min-h-screen bg-[#080c14] text-slate-100 flex">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex">
       <Sidebar />
       <div className="flex-1 ml-64 flex flex-col min-w-0">
         <Header title={title} subtitle={subtitle} />

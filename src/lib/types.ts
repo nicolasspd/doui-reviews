@@ -23,6 +23,12 @@ export interface Business {
   welcomeMessage: string;
   thankYouMessage: string;
   logoUrl?: string;
+  bgType?: "gradient" | "color" | "preset_image" | "custom_image";
+  bgColor?: string;
+  bgGradient?: string;
+  bgPresetImage?: string;
+  bgCustomImage?: string;
+  bgOverlayOpacity?: number;
 }
 
 export interface Customer {

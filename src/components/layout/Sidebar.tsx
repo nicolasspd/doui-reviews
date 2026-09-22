@@ -13,8 +13,6 @@ import {
   Settings,
   Sparkles,
   ExternalLink,
-  Store,
-  ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { store } from "@/lib/store";
@@ -45,7 +43,7 @@ export function Sidebar() {
       href: "/feedback",
       icon: MessageSquareHeart,
       badge: recoveryCount > 0 ? `${recoveryCount} atención` : undefined,
-      badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+      badgeColor: "bg-amber-100 text-amber-800 border-amber-300 font-semibold",
     },
     {
       name: "Directorio Clientes",
@@ -74,30 +72,30 @@ export function Sidebar() {
       icon: BarChart3,
     },
     {
-      name: "Configuración & Google",
+      name: "Configuración & Diseño",
       href: "/settings",
       icon: Settings,
     },
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-800 bg-[#070b12] flex flex-col h-screen fixed left-0 top-0 z-30 select-none">
+    <aside className="w-64 border-r border-slate-200 bg-white flex flex-col h-screen fixed left-0 top-0 z-30 select-none shadow-sm">
       {/* Brand Header */}
-      <div className="p-5 border-b border-slate-800/80 flex items-center justify-between">
+      <div className="p-5 border-b border-slate-100 flex items-center justify-between">
         <Link href="/dashboard" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-emerald-950/40">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-black shadow-md shadow-emerald-500/20">
             RF
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
+              <span className="font-bold tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors">
                 ReviewFlow
               </span>
-              <span className="text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                 doui
               </span>
             </div>
-            <p className="text-xs text-slate-400 truncate max-w-[130px]">
+            <p className="text-xs text-slate-500 truncate max-w-[130px] font-medium">
               {businessName}
             </p>
           </div>
@@ -105,13 +103,13 @@ export function Sidebar() {
       </div>
 
       {/* Business Status Pill */}
-      <div className="px-4 py-3 border-b border-slate-800/50">
-        <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-2.5 flex items-center justify-between">
+      <div className="px-4 py-3 border-b border-slate-100">
+        <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-slate-300 font-medium">Filtro Google Activo</span>
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-xs text-slate-700 font-medium">Filtro Google Activo</span>
           </div>
-          <span className="text-[11px] font-semibold text-emerald-400">≥ 4★</span>
+          <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">≥ 4★</span>
         </div>
       </div>
 
@@ -126,11 +124,11 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all group",
+                "flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-all group",
                 isActive
-                  ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 font-semibold"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60",
-                item.highlight && !isActive && "text-teal-300 hover:text-teal-200 bg-teal-950/20 border border-teal-800/30"
+                  ? "bg-emerald-50 text-emerald-800 border border-emerald-200/80 font-semibold shadow-xs"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-50",
+                item.highlight && !isActive && "text-teal-700 hover:text-teal-900 bg-teal-50/70 border border-teal-200/60"
               )}
             >
               <div className="flex items-center gap-2.5">
@@ -138,10 +136,10 @@ export function Sidebar() {
                   className={cn(
                     "w-4 h-4 transition-transform group-hover:scale-110",
                     isActive
-                      ? "text-emerald-400"
+                      ? "text-emerald-600"
                       : item.highlight
-                      ? "text-teal-400"
-                      : "text-slate-400 group-hover:text-slate-200"
+                      ? "text-teal-600"
+                      : "text-slate-400 group-hover:text-slate-700"
                   )}
                 />
                 <span>{item.name}</span>
@@ -150,7 +148,7 @@ export function Sidebar() {
               {item.badge && (
                 <span
                   className={cn(
-                    "text-[10px] px-2 py-0.5 rounded-full border font-semibold",
+                    "text-[10px] px-2 py-0.5 rounded-full border",
                     item.badgeColor
                   )}
                 >
@@ -163,19 +161,19 @@ export function Sidebar() {
       </div>
 
       {/* Customer Testing Box */}
-      <div className="p-3 border-t border-slate-800/80 bg-slate-900/40">
-        <div className="rounded-xl border border-emerald-500/30 bg-gradient-to-b from-emerald-950/30 to-slate-900 p-3">
-          <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-semibold mb-1">
-            <Sparkles className="w-3.5 h-3.5" />
+      <div className="p-3 border-t border-slate-100 bg-slate-50/50">
+        <div className="rounded-2xl border border-emerald-200 bg-gradient-to-b from-emerald-50/60 to-white p-3 shadow-xs">
+          <div className="flex items-center gap-1.5 text-emerald-800 text-xs font-bold mb-1">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span>Simulador de Cliente</span>
           </div>
-          <p className="text-[11px] text-slate-400 mb-2 leading-relaxed">
-            Prueba la landing pública móvil de calificación y emisión de cupones.
+          <p className="text-[11px] text-slate-600 mb-2.5 leading-relaxed">
+            Prueba la landing móvil de calificación, logo y cupones QR.
           </p>
           <Link
             href="/r/demo-token"
             target="_blank"
-            className="w-full flex items-center justify-center gap-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs py-1.5 rounded-lg transition-colors shadow-md shadow-emerald-950/40"
+            className="w-full flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs py-2 rounded-xl transition-colors shadow-sm"
           >
             <span>Abrir Encuesta</span>
             <ExternalLink className="w-3 h-3" />

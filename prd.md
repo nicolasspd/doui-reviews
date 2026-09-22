@@ -1176,22 +1176,22 @@ Nunca llamar directamente a Resend desde componentes UI.
 
 Cada negocio podrá configurar:
 
-* logo;
+* logo (URL propia o predefinidos de industria);
 * primary color;
 * secondary color;
 * business name;
 * welcome message;
-* thank-you message.
+* thank-you message;
+* fondo visual del formulario del cliente (degradados elegantes, fotos de galería curada, color sólido o imagen personalizada con control de opacidad).
 
-Pero el sistema debe mantener límites de diseño.
-
-No permitir que el usuario destruya la legibilidad.
+El sistema mantiene límites de diseño garantizando un overlay oscuro/atenuado con legibilidad garantizada para los textos y tarjetas.
 
 ---
 
 # 42. Design system
 
-El producto debe tener un design system propio basado en shadcn/ui.
+El producto opera en un **Light Mode editorial y moderno** (paleta slate suave `#f8fafc`, tarjetas blancas nítidas con bordes sutiles `#e2e8f0`, acentos esmeralda y ámbar), evitando fondos negros o estéticas genéricas de IA.
+Basado en shadcn/ui.
 
 No utilizar componentes arbitrarios de diferentes librerías sin criterio.
 

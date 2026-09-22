@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { LucideIcon, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,32 +19,32 @@ export function KpiCard({
   delta,
   isPositive = true,
   icon: Icon,
-  iconColor = "text-emerald-400",
+  iconColor = "text-emerald-600",
   highlight = false,
 }: KpiCardProps) {
   return (
     <div
       className={cn(
-        "glass-panel p-5 rounded-2xl relative overflow-hidden transition-all duration-300 hover:border-slate-700",
-        highlight && "border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 via-slate-900/60 to-slate-900/80"
+        "glass-panel p-5 rounded-2xl relative overflow-hidden transition-all duration-300 hover:shadow-md hover:border-slate-300",
+        highlight && "border-emerald-200 bg-gradient-to-br from-emerald-50/50 via-white to-white"
       )}
     >
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-medium text-slate-400 tracking-wide uppercase">
+          <p className="text-xs font-semibold text-slate-500 tracking-wide uppercase">
             {title}
           </p>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl lg:text-3xl font-bold tracking-tight text-white">
+            <span className="text-2xl lg:text-3xl font-extrabold tracking-tight text-slate-900">
               {value}
             </span>
             {delta && (
               <span
                 className={cn(
-                  "inline-flex items-center text-xs font-semibold px-1.5 py-0.5 rounded-md",
+                  "inline-flex items-center text-xs font-bold px-1.5 py-0.5 rounded-md",
                   isPositive
-                    ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20"
-                    : "bg-rose-500/15 text-rose-400 border border-rose-500/20"
+                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                    : "bg-rose-50 text-rose-700 border border-rose-200"
                 )}
               >
                 {isPositive ? (
@@ -58,13 +57,13 @@ export function KpiCard({
             )}
           </div>
           {subtitle && (
-            <p className="mt-1.5 text-xs text-slate-400">{subtitle}</p>
+            <p className="mt-1.5 text-xs text-slate-500 font-medium">{subtitle}</p>
           )}
         </div>
 
         <div
           className={cn(
-            "p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60",
+            "p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 shadow-2xs",
             iconColor
           )}
         >

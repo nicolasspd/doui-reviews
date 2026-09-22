@@ -22,24 +22,24 @@ const data = [
 
 export function SatisfactionChart() {
   return (
-    <div className="glass-panel p-6 rounded-2xl">
+    <div className="glass-panel p-6 rounded-3xl">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
         <div>
-          <h3 className="text-base font-semibold text-white">
+          <h3 className="text-base font-bold text-slate-900">
             Evolución de Satisfacción y Feedback
           </h3>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500 font-medium">
             Promedio de calificación diaria y total de clientes completados
           </p>
         </div>
-        <div className="flex items-center gap-4 text-xs">
+        <div className="flex items-center gap-4 text-xs font-semibold">
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-            <span className="text-slate-300">Rating Promedio (1 - 5★)</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+            <span className="text-slate-700">Rating Promedio (1 - 5★)</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-teal-500/40" />
-            <span className="text-slate-400">Feedbacks Recibidos</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-teal-400" />
+            <span className="text-slate-500">Feedbacks Recibidos</span>
           </div>
         </div>
       </div>
@@ -48,26 +48,26 @@ export function SatisfactionChart() {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
             <defs>
-              <linearGradient id="colorRating" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10b981" stopOpacity={0.4} />
+              <linearGradient id="colorRatingLight" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#10b981" stopOpacity={0.25} />
                 <stop offset="95%" stopColor="#10b981" stopOpacity={0.0} />
               </linearGradient>
-              <linearGradient id="colorFeedbacks" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#0d9488" stopOpacity={0.2} />
+              <linearGradient id="colorFeedbacksLight" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#0d9488" stopOpacity={0.15} />
                 <stop offset="95%" stopColor="#0d9488" stopOpacity={0.0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
             <XAxis
               dataKey="day"
-              stroke="#64748b"
+              stroke="#94a3b8"
               fontSize={11}
               tickLine={false}
               axisLine={false}
             />
             <YAxis
               domain={[3.5, 5]}
-              stroke="#64748b"
+              stroke="#94a3b8"
               fontSize={11}
               tickLine={false}
               axisLine={false}
@@ -77,14 +77,14 @@ export function SatisfactionChart() {
               content={({ active, payload, label }) => {
                 if (active && payload && payload.length) {
                   return (
-                    <div className="glass-panel p-3 rounded-xl shadow-xl border border-slate-700 text-xs">
-                      <p className="font-semibold text-white mb-1.5">{label}</p>
+                    <div className="bg-white p-3 rounded-xl shadow-lg border border-slate-200 text-xs">
+                      <p className="font-bold text-slate-900 mb-1.5">{label}</p>
                       <div className="space-y-1">
-                        <p className="text-emerald-400 flex items-center justify-between gap-4">
+                        <p className="text-emerald-700 font-semibold flex items-center justify-between gap-4">
                           <span>Rating Promedio:</span>
                           <span className="font-bold">{payload[0]?.value}★</span>
                         </p>
-                        <p className="text-slate-300 flex items-center justify-between gap-4">
+                        <p className="text-slate-600 flex items-center justify-between gap-4">
                           <span>Feedbacks Recibidos:</span>
                           <span className="font-bold">{payload[1]?.value}</span>
                         </p>
@@ -98,10 +98,10 @@ export function SatisfactionChart() {
             <Area
               type="monotone"
               dataKey="rating"
-              stroke="#10b981"
+              stroke="#059669"
               strokeWidth={2.5}
               fillOpacity={1}
-              fill="url(#colorRating)"
+              fill="url(#colorRatingLight)"
             />
             <Area
               type="monotone"
@@ -109,7 +109,7 @@ export function SatisfactionChart() {
               stroke="#0d9488"
               strokeWidth={1.5}
               fillOpacity={1}
-              fill="url(#colorFeedbacks)"
+              fill="url(#colorFeedbacksLight)"
             />
           </AreaChart>
         </ResponsiveContainer>

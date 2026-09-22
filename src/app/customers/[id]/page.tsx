@@ -9,14 +9,11 @@ import { Customer, Feedback, Coupon } from "@/lib/types";
 import { formatDate, cn } from "@/lib/utils";
 import {
   ArrowLeft,
-  User,
   Star,
   Mail,
   Phone,
-  Calendar,
   Gift,
   MessageSquare,
-  CheckCircle2,
 } from "lucide-react";
 
 export default function CustomerDetailPage() {
@@ -42,8 +39,8 @@ export default function CustomerDetailPage() {
     return (
       <DashboardShell title="Perfil del Cliente">
         <div className="glass-panel p-8 rounded-2xl text-center">
-          <p className="text-slate-400">Cliente no encontrado.</p>
-          <Link href="/customers" className="text-emerald-400 text-xs mt-3 inline-block font-semibold">
+          <p className="text-slate-500">Cliente no encontrado.</p>
+          <Link href="/customers" className="text-emerald-700 text-xs mt-3 inline-block font-bold">
             Volver al directorio
           </Link>
         </div>
@@ -59,28 +56,28 @@ export default function CustomerDetailPage() {
       <div className="space-y-6">
         <Link
           href="/customers"
-          className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-900 font-medium transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Volver al directorio de clientes</span>
         </Link>
 
         {/* Profile Card Header */}
-        <div className="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="glass-panel p-6 sm:p-7 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-950/50">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-emerald-500/20">
               {customer.name.substring(0, 2).toUpperCase()}
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white">{customer.name}</h2>
-              <div className="flex items-center gap-3 text-xs text-slate-400 mt-1 flex-wrap">
+              <h2 className="text-lg font-bold text-slate-900">{customer.name}</h2>
+              <div className="flex items-center gap-3 text-xs text-slate-500 mt-1 flex-wrap font-medium">
                 <span className="flex items-center gap-1">
-                  <Mail className="w-3.5 h-3.5 text-slate-500" />
+                  <Mail className="w-3.5 h-3.5 text-slate-400" />
                   {customer.email}
                 </span>
                 {customer.phone && (
                   <span className="flex items-center gap-1">
-                    <Phone className="w-3.5 h-3.5 text-slate-500" />
+                    <Phone className="w-3.5 h-3.5 text-slate-400" />
                     {customer.phone}
                   </span>
                 )}
@@ -88,16 +85,16 @@ export default function CustomerDetailPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 border-t md:border-t-0 md:border-l border-slate-800 pt-3 md:pt-0 md:pl-6">
+          <div className="flex items-center gap-4 border-t md:border-t-0 md:border-l border-slate-100 pt-3 md:pt-0 md:pl-6">
             <div className="text-center">
-              <span className="text-2xl font-bold text-white">{customer.visitsCount}</span>
-              <p className="text-[11px] text-slate-400 uppercase tracking-wider">Visitas</p>
+              <span className="text-2xl font-black text-slate-900">{customer.visitsCount}</span>
+              <p className="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Visitas</p>
             </div>
             <div className="text-center">
-              <span className="text-2xl font-bold text-emerald-400 flex items-center justify-center gap-0.5">
-                {customer.averageRating.toFixed(1)} <Star className="w-4 h-4 fill-current" />
+              <span className="text-2xl font-black text-emerald-700 flex items-center justify-center gap-0.5">
+                {customer.averageRating.toFixed(1)} <Star className="w-4 h-4 fill-amber-400 text-amber-500" />
               </span>
-              <p className="text-[11px] text-slate-400 uppercase tracking-wider">Rating Medio</p>
+              <p className="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Rating Medio</p>
             </div>
           </div>
         </div>
@@ -105,53 +102,53 @@ export default function CustomerDetailPage() {
         {/* Two Columns: Feedbacks History & Coupons Issued */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Feedbacks */}
-          <div className="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
+          <div className="glass-panel p-6 sm:p-7 rounded-3xl space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-emerald-600" />
               <span>Opiniones y Calificaciones Enviadas ({feedbacks.length})</span>
             </h3>
 
             <div className="space-y-3">
               {feedbacks.map((fb) => (
-                <div key={fb.id} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
+                <div key={fb.id} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">
+                    <div className="flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">
                       <span>{fb.rating}★</span>
                     </div>
-                    <span className="text-slate-500 font-mono text-[11px]">{formatDate(fb.createdAt)}</span>
+                    <span className="text-slate-400 font-mono text-[11px]">{formatDate(fb.createdAt)}</span>
                   </div>
-                  <p className="text-slate-300 italic leading-relaxed">"{fb.comment}"</p>
-                  <p className="text-[10px] text-slate-500">Canal: {fb.channel}</p>
+                  <p className="text-slate-700 italic leading-relaxed">"{fb.comment}"</p>
+                  <p className="text-[10px] text-slate-500 font-medium">Canal: {fb.channel}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Coupons */}
-          <div className="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <Gift className="w-4 h-4 text-emerald-400" />
+          <div className="glass-panel p-6 sm:p-7 rounded-3xl space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Gift className="w-4 h-4 text-emerald-600" />
               <span>Cupones Asignados ({coupons.length})</span>
             </h3>
 
             <div className="space-y-3">
               {coupons.map((c) => (
-                <div key={c.id} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
+                <div key={c.id} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-bold text-white">{c.title}</h4>
+                    <h4 className="font-bold text-slate-900">{c.title}</h4>
                     <span
                       className={cn(
-                        "text-[10px] font-semibold px-2 py-0.5 rounded uppercase",
+                        "text-[10px] font-bold px-2 py-0.5 rounded-full uppercase border",
                         c.status === "redeemed"
-                          ? "bg-slate-800 text-slate-400"
-                          : "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                          ? "bg-slate-100 text-slate-500 border-slate-200"
+                          : "bg-emerald-50 text-emerald-700 border-emerald-200"
                       )}
                     >
                       {c.status === "redeemed" ? "Canjeado" : "Activo"}
                     </span>
                   </div>
-                  <p className="text-slate-400">{c.description}</p>
-                  <div className="p-2 rounded bg-slate-950 font-mono text-emerald-400 text-center font-bold">
+                  <p className="text-slate-500 font-medium">{c.description}</p>
+                  <div className="p-2 rounded-xl bg-white border border-slate-200 font-mono text-emerald-700 text-center font-bold shadow-2xs">
                     {c.code}
                   </div>
                 </div>
